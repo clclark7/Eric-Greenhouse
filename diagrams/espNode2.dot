@@ -1,0 +1,23 @@
+digraph ESP32_Node2 {
+  rankdir=TB;
+  node [shape=box, style="rounded,filled", fillcolor=lightgreen];
+
+  Start    [label="Start"];
+  Init     [label="Initialize Temperature & Humidity Sensors"];
+  Loop     [label="Main Loop"];
+  Read     [label="Read Temperature & Humidity Values"];
+  Process  [label="Process Data"];
+  Check    [label="Check for Alerts"];
+  Publish  [label="Publish Data via MQTT"];
+  Wait     [label="Delay/Wait"];
+
+  Start -> Init;
+  Init -> Loop;
+  Loop -> Read;
+  Read -> Process;
+  Process -> Check;
+  Check -> Publish;
+  Publish -> Wait;
+  Wait -> Loop;
+}
+
