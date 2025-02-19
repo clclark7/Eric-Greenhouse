@@ -1,0 +1,23 @@
+digraph ESP32_Node1 {
+  rankdir=TB;
+  node [shape=box, style="rounded,filled", fillcolor=lightblue];
+
+  Start    [label="Start"];
+  Init     [label="Initialize Ultrasonic & pH Sensors"];
+  Loop     [label="Main Loop"];
+  Read     [label="Read Ultrasonic & pH Values"];
+  Process  [label="Process Data"];
+  Check    [label="Check for Alerts"];
+  Publish  [label="Publish Data via MQTT"];
+  Wait     [label="Delay/Wait"];
+
+  Start -> Init;
+  Init -> Loop;
+  Loop -> Read;
+  Read -> Process;
+  Process -> Check;
+  Check -> Publish;
+  Publish -> Wait;
+  Wait -> Loop;
+}
+
