@@ -1,4 +1,4 @@
-import { AppShell, Burger, ActionIcon, Container, Flex } from "@mantine/core";
+import { AppShell, Burger, ActionIcon, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconSettings,
