@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "grow-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "format": "prettier .",
     "preview": "vite preview",
     "test": "vitest --run",
-    "coverage": "vitest run --coverage",
+    "coverage": "vitest --run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "cd .. && husky frontend/.husky"
@@ -62,6 +62,7 @@
     "@storybook/test": "^8.5.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^3.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
@@ -83,6 +84,9 @@
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
+    ],
+    "ignorePatterns": [
+      "coverage/"
     ]
   },
   "husky": {

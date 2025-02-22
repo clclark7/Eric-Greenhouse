@@ -1,6 +1,10 @@
-# frontend/.husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
 cd frontend
+
 npm run format
-npm run lint
+npm run lint || exit 1  # Block commit if linting fails
+npm run test || exit 1  # Run tests in headless mode & exit on failure
+
 git update-index --again
-npm test
