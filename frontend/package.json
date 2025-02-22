@@ -11,7 +11,8 @@
     "format:check": "prettier --check .",
     "preview": "vite preview",
     "test": "vitest --run",
-    "coverage": "vitest --run --coverage",
+    "test:watch": "vitest --run watch",
+    "test:coverage": "vitest --run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "cd .. && husky frontend/.husky"
