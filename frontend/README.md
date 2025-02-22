@@ -1,50 +1,132 @@
-# React + TypeScript + Vite
+# Greenhouse Real-time Observation and Watering (GROW) - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend code for the GROW system, a real-time monitoring and management solution for greenhouse environmental conditions. The system integrates sensors, wireless communication, and a user-friendly dashboard to track and control key parameters such as soil moisture, temperature, humidity, and water levels.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [Technologies Used](#technologies-used)
+- [Running the App](#running-the-app)
+- [Testing](#testing)
+- [Linting & Formatting](#linting-formatting)
+- [Storybook](#storybook)
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```
+frontend/
+├── src/
+│   ├── assets/                   # Static assets like images, fonts, etc.
+│   ├── components/               # Reusable components like buttons, forms, etc.
+│   ├── pages/                    # Pages of the web app
+│   ├── styles/                   # Global styles (CSS, PostCSS, Tailwind)
+│   ├── App.tsx                   # Main application entry point
+│   ├── main.tsx                  # Initializes and renders the app
+│   └── ...
+├── public/                       # Public assets (index.html, etc.)
+├── tests/                     # Unit and integration tests
+├── .eslintrc.json                 # ESLint configuration
+├── .prettierrc                    # Prettier configuration
+├── package.json                  # Project dependencies and scripts
+├── tsconfig.json                 # TypeScript configuration
+└── vite.config.ts                # Vite configuration
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Setup Instructions
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+1. Clone this repository to your local machine:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
+   ```bash
+   git clone <repo-url>
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd grow-frontend
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the app in your browser at `http://localhost:3000`.
+
+## Technologies Used
+
+- **React** - Frontend framework for building the user interface.
+- **TypeScript** - Typed superset of JavaScript for better tooling and reliability.
+- **Vite** - Build tool and development server.
+- **Mantine** - UI components and hooks for building the dashboard interface.
+- **Tailwind CSS** - Utility-first CSS framework for responsive and customizable styling.
+- **PostCSS** - CSS transformation tool for working with Tailwind.
+- **Vitest** - Testing framework used for unit and integration tests.
+- **React Router** - For navigation between different views or pages in the app.
+- **Storybook** - Tool for building UI components in isolation for development.
+
+## Running the App
+
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+This will spin up a local server and open the app in your default browser at `http://localhost:3000`.
+
+## Testing
+
+To run tests for the project, use the following command:
+
+```bash
+npm run test
+```
+
+For test coverage:
+
+```bash
+npm run coverage
+```
+
+You can write tests under the `__tests__` directory located in the `pages` and `components` folders.
+
+## Linting & Formatting
+
+This project uses ESLint and Prettier for linting and code formatting. To lint the codebase, run:
+
+```bash
+npm run lint
+```
+
+To format the code with Prettier, run:
+
+```bash
+npm run format
+```
+
+These checks are also automatically run before committing using Husky hooks.
+
+## Storybook
+
+Storybook is used for developing and testing UI components in isolation. To start Storybook, run:
+
+```bash
+npm run storybook
+```
+
+Storybook will run on `http://localhost:6006`.
+
+To build the Storybook static files:
+
+```bash
+npm run build-storybook
 ```

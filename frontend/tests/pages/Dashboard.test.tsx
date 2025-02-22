@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { Dashboard } from "../Dashboard";
+import { Dashboard } from "../../src/pages/Dashboard";
 import "@testing-library/jest-dom";
 import { MantineProvider } from "@mantine/core";
 
