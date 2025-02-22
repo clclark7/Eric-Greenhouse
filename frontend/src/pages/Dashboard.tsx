@@ -1,11 +1,6 @@
 import { AppShell, Burger, ActionIcon, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import {
-  IconSettings,
-  IconExclamationCircle,
-  IconLogs,
-  IconHome,
-} from "@tabler/icons-react";
+import * as TablerIcons from "@tabler/icons-react";
 
 export function Dashboard() {
   const [opened, { toggle }] = useDisclosure();
@@ -30,19 +25,13 @@ export function Dashboard() {
             wrap="nowrap"
             style={{ width: "100%", height: "100%", paddingLeft: "25px" }}
           >
-            <ActionIcon
-              variant="default"
-              aria-label="Dashboard"
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              size="sm"
               hiddenFrom="sm"
-              style={{ padding: 0 }}
-            >
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                size="sm"
-                style={{ width: "auto", height: "auto" }}
-              />
-            </ActionIcon>
+              style={{ width: "auto", height: "auto", padding: 0 }}
+            />
             <Flex
               gap="md"
               align="center"
@@ -50,25 +39,25 @@ export function Dashboard() {
               style={{ width: "100%", paddingRight: "25px" }}
             >
               <ActionIcon variant="default" aria-label="Dashboard">
-                <IconHome
+                <TablerIcons.IconHome
                   style={{ width: "100%", height: "100%" }}
                   stroke={1.5}
                 />
               </ActionIcon>
               <ActionIcon variant="default" aria-label="Alerts">
-                <IconExclamationCircle
+                <TablerIcons.IconExclamationCircle
                   style={{ width: "100%", height: "100%" }}
                   stroke={1.5}
                 />
               </ActionIcon>
               <ActionIcon variant="default" aria-label="Logs">
-                <IconLogs
+                <TablerIcons.IconLogs
                   style={{ width: "100%", height: "100%" }}
                   stroke={1.5}
                 />
               </ActionIcon>
               <ActionIcon variant="default" aria-label="Settings">
-                <IconSettings
+                <TablerIcons.IconSettings
                   style={{ width: "100%", height: "100%" }}
                   stroke={1.5}
                 />

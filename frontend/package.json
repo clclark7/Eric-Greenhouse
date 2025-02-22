@@ -6,14 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "prettier . && eslint .",
+    "lint": "eslint .",
     "format": "prettier .",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest --run",
     "coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "cd .. && husky frontend/.husky"
   },
   "dependencies": {
     "@mantine/carousel": "^7.17.0",
@@ -33,6 +33,7 @@
     "@tabler/icons-react": "^3.30.0",
     "@tailwindcss/postcss": "^4.0.7",
     "@tailwindcss/vite": "^4.0.7",
+    "@testing-library/react": "^16.2.0",
     "@tiptap/extension-link": "^2.11.5",
     "@tiptap/pm": "^2.11.5",
     "@tiptap/react": "^2.11.5",
@@ -59,7 +60,8 @@
     "@storybook/react": "^8.5.8",
     "@storybook/react-vite": "^8.5.8",
     "@storybook/test": "^8.5.8",
-    "@vitejs/plugin-react": "^1.3.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
@@ -75,7 +77,7 @@
     "storybook": "^8.5.8",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
-    "vite": "^6.1.0",
+    "vite": "^6.1.1",
     "vitest": "^3.0.6"
   },
   "eslintConfig": {
@@ -85,8 +87,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm test",
-      "pre-push": "npm run lint && npm test"
+      "pre-commit": "npm run format && npm run lint && git update-index --again && npm test"
     }
   }
 }
